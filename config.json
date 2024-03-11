@@ -1,0 +1,332 @@
+{
+  "formatVersion": 1,
+  "menu": {
+    "Config.credentialsTab": {
+      "label": "Config.credentialsTab",
+      "formFields": {
+        "merchantId": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.merchantIdLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "mwsAccessKey": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.mwsAccessKeyLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "mwsSecretAccessKey": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.mwsSecretAccessKeyLabel",
+          "options": {
+            "defaultValue": "",
+            "isPassword": true
+          }
+        },
+        "accountCountry": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.accountCountryLabel",
+          "options": {
+            "defaultValue": "DE",
+            "selectBoxValues": [
+              {
+                "value": "DE",
+                "caption": "Config.accountCountryPossibleValueDE"
+              },
+              {
+                "value": "UK",
+                "caption": "Config.accountCountryPossibleValueUK"
+              },
+              {
+                "value": "US",
+                "caption": "Config.accountCountryPossibleValueUS"
+              }
+            ]
+          }
+        },
+        "loginClientId": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.loginClientIdLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "amzShopwareConnectorKey": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.shopwareConnectorKeyLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        }
+      }
+    },
+    "Config.baseSettingsTab": {
+      "label": "Config.baseSettingsTab",
+      "formFields": {
+        "sandbox": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.sandboxLabel",
+          "options": {
+            "defaultValue": "0"
+          }
+        },
+        "hideButtons": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.hideButtonsLabel",
+          "options": {
+            "defaultValue": "0"
+          }
+        },
+        "usePopup": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.usePopupLabel",
+          "options": {
+            "defaultValue": "0"
+          }
+        },
+        "authorizationMode": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.authorizationModeLabel",
+          "options": {
+            "selectBoxValues": [
+              {
+                "value": "default",
+                "caption": "Config.authorizationModePossibleValueDefault"
+              },
+              {
+                "value": "fast_auth",
+                "caption": "Config.authorizationModePossibleValueFastAuth"
+              },
+              {
+                "value": "manually",
+                "caption": "Config.authorizationModePossibleValueManually"
+              }
+            ]
+          }
+        },
+        "captureMode": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.captureModeLabel",
+          "options": {
+            "selectBoxValues": [
+              {
+                "value": "after_auth",
+                "caption": "Config.captureModePossibleValueAfterAuth"
+              },
+              {
+                "value": "manually",
+                "caption": "Config.captureModePossibleValueManually"
+              }
+            ]
+          }
+        },
+        "authorizedStatus": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.authorizedStatusLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "softDeclineStatus": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.softDeclineStatusLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "hardDeclineStatus": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.hardDeclineStatusLabel",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "closeOroOnCompleteCapture": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.closeOroOnCompleteCaptureLabel",
+          "options": {
+            "defaultValue": "true"
+          }
+        },
+        "useEmailInShippingAddress": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.useEmailInShippingAddressLabel",
+          "options": {
+            "defaultValue": "true"
+          }
+        }
+      }
+    },
+    "Config.StyleTab": {
+      "label": "Config.StyleTab",
+      "formFields": {
+        "payButtonSize": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.payButtonSizeLabel",
+          "options": {
+            "defaultValue": "medium",
+            "selectBoxValues": [
+              {
+                "value": "small",
+                "caption": "Config.payButtonSizePossibleValueSmall"
+              },
+              {
+                "value": "medium",
+                "caption": "Config.payButtonSizePossibleValueMedium"
+              },
+              {
+                "value": "large",
+                "caption": "Config.payButtonSizePossibleValueLarge"
+              },
+              {
+                "value": "x-large",
+                "caption": "Config.payButtonSizePossibleValueXLarge"
+              }
+            ]
+          }
+        },
+        "payButtonColor": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.payButtonColorLabel",
+          "options": {
+            "defaultValue": "Gold",
+            "selectBoxValues": [
+              {
+                "value": "Gold",
+                "caption": "Config.payButtonColorPossibleValueGold"
+              },
+              {
+                "value": "LightGray",
+                "caption": "Config.payButtonColorPossibleValueLightGray"
+              },
+              {
+                "value": "DarkGray",
+                "caption": "Config.payButtonColorPossibleValueDarkGray"
+              }
+            ]
+          }
+        },
+        "loginButtonSize": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.loginButtonSizeLabel",
+          "options": {
+            "defaultValue": "medium",
+            "selectBoxValues": [
+              {
+                "value": "small",
+                "caption": "Config.loginButtonSizePossibleValueSmall"
+              },
+              {
+                "value": "medium",
+                "caption": "Config.loginButtonSizePossibleValueMedium"
+              },
+              {
+                "value": "large",
+                "caption": "Config.loginButtonSizePossibleValueLarge"
+              },
+              {
+                "value": "x-large",
+                "caption": "Config.loginButtonSizePossibleValueXLarge"
+              }
+            ]
+          }
+        },
+        "loginButtonColor": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.loginButtonColorLabel",
+          "options": {
+            "defaultValue": "Gold",
+            "selectBoxValues": [
+              {
+                "value": "Gold",
+                "caption": "Config.loginButtonColorPossibleValueGold"
+              },
+              {
+                "value": "LightGray",
+                "caption": "Config.loginButtonColorPossibleValueLightGray"
+              },
+              {
+                "value": "DarkGray",
+                "caption": "Config.loginButtonColorPossibleValueDarkGray"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "Config.CookiesTab": {
+      "label": "Config.CookiesTab",
+      "formFields": {
+        "consentGroup": {
+          "type": "selectBox",
+          "required": false,
+          "label": "Config.consentGroupLabel",
+          "options": {
+            "defaultValue": "necessary",
+            "selectBoxValues": [
+              {
+                "value": "necessary",
+                "caption": "Config.consentGroupNecessary"
+              },
+              {
+                "value": "payment",
+                "caption": "Config.consentGroupPayment"
+              },
+              {
+                "value": "tracking",
+                "caption": "Config.consentGroupTracking"
+              },
+              {
+                "value": "marketing",
+                "caption": "Config.consentGroupMarketing"
+              },
+              {
+                "value": "media",
+                "caption": "Config.consentGroupMedia"
+              }
+            ]
+          }
+        },
+        "consentNecessary": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.consentNecessaryLabel",
+          "options": {
+            "defaultValue": "true"
+          }
+        },
+        "consentOptOut": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Config.consentOptOutLabel",
+          "options": {
+            "defaultValue": "false"
+          }
+        }
+      }
+    }
+  }
+}
