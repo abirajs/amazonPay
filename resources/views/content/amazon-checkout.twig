@@ -1,0 +1,114 @@
+{% extends getPartial('page-design') %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{% block PageBody %}
+    <input type="hidden" id="currency-input" value="{{ currency }}"/>
+    <div class="container-max">
+        <h1>{{ trans("AmazonLoginAndPay::AmazonPay.checkoutPageCaption") }}</h1>
+        {% if (error != '') or (walletOnly == 1) %}
+            <div class="alert alert-danger">
+                {% if (error == 'InvalidPaymentMethod') or (error == 'TransactionTimeout') or (walletOnly == 1) %}
+                    {{ trans("AmazonLoginAndPay::AmazonPay.pleaseChangePaymentMethod") }}
+                {% elseif (error == 'MfaAbandoned') %}
+                    {{ trans("AmazonLoginAndPay::AmazonPay.errorMfaAbandoned") }}
+                {% else %}
+                    {{ error }}
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if walletOnly != 1 %}
+            <div class="amz-checkout-box">
+                <h2>{{ trans("AmazonLoginAndPay::AmazonPay.shippingAddressCaption") }}</h2>
+                <div id="addressBookWidgetDiv" class="amz-border-box"></div>
+            </div>
+        {% endif %}
+        <div class="amz-checkout-box">
+            <h2>{{ trans("AmazonLoginAndPay::AmazonPay.paymentMethodCaption") }}</h2>
+            <div id="walletWidgetDiv" class="amz-border-box"></div>
+        </div>
+        {% if walletOnly != 1 %}
+            <div class="amz-checkout-box">
+                <h2>{{ trans("AmazonLoginAndPay::AmazonPay.shippingMethodCaption") }}</h2>
+                <div id="shippingOptionsListWr" class="amz-border-box">
+                    <div class="amz-loading"></div>
+                </div>
+            </div>
+
+            <div class="amz-checkout-box">
+                <h2>{{ trans("AmazonLoginAndPay::AmazonPay._checkoutContactWishMessage") }}</h2>
+                <div id="amzOrderComment" class="amz-border-box">
+                    <textarea class="amz-comment-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="amz-checkout-box">
+                <h2>{{ trans("AmazonLoginAndPay::AmazonPay.summaryCaption") }}</h2>
+                <div class="amz-border-box with-mb">
+                    <label class="form-check-label" for="gtc-accept">
+                        <input type="checkbox" value="1" id="gtc-accept"
+                               data-error="{{ trans("AmazonLoginAndPay::AmazonPay.checkoutGtcError") }}">
+                        {% autoescape false %}
+                            {% if trans("AmazonLoginAndPay::AmazonPay._generalChooseOur") == 'AmazonLoginAndPay::AmazonPay._generalChooseOur' %}
+                                {% set gtcContent %}
+                                    <a href="/gtc" target="_blank">
+                                        <strong>{{ trans("AmazonLoginAndPay::AmazonPay._checkoutGtc", {"hyphen": "&shy;"}) }}</strong>
+                                    </a>
+                                {% endset %}
+
+                                {% set cancellationContent %}
+                                    <a href="/cancellation-rights" target="_blank">
+                                        <strong>{{ trans("AmazonLoginAndPay::AmazonPay._checkoutCancellationRight", {"hyphen": "&shy;"}) }}</strong>
+                                    </a>
+                                {% endset %}
+
+                                {% set policyContent %}
+                                    <a href="/privacy-policy" target="_blank">
+                                        <strong>{{ trans("AmazonLoginAndPay::AmazonPay._checkoutPrivacyPolicy", {"hyphen": "&shy;"}) }}</strong>
+                                    </a>
+                                {% endset %}
+
+                                {{ trans("AmazonLoginAndPay::AmazonPay._checkoutChooseOur", {"gtc": gtcContent, "cancellation": cancellationContent, "policy": policyContent, "hyphen": "&shy;"}) }}
+
+                            {% else %}
+                                {% set gtcContent %}
+                                    <a href="/gtc" target="_blank">
+                                        <strong>{{ trans("AmazonLoginAndPay::AmazonPay._generalGtc", {"hyphen": "&shy;"}) }}</strong>
+                                    </a>
+                                {% endset %}
+
+                                {% set cancellationContent %}
+                                    <a href="/cancellation-rights" target="_blank">
+                                        <strong>{{ trans("AmazonLoginAndPay::AmazonPay._generalCancellationRight", {"hyphen": "&shy;"}) }}</strong>
+                                    </a>
+                                {% endset %}
+
+                                {% set policyContent %}
+                                    <a href="/privacy-policy" target="_blank">
+                                        <strong>{{ trans("AmazonLoginAndPay::AmazonPay.generalPrivacyPolicy", {"hyphen": "&shy;"}) }}</strong>
+                                    </a>_
+                                {% endset %}
+
+                                {{ trans("AmazonLoginAndPay::AmazonPay._generalChooseOur", {"gtc": gtcContent, "cancellation": cancellationContent, "policy": policyContent, "hyphen": "&shy;"}) }}
+                            {% endif %}
+
+                        {% endautoescape %}
+                    </label>
+                </div>
+                <div class="amz-border-box">
+                    <div id="orderDetailsWr">
+                        <div class="amz-loading"></div>
+                    </div>
+                    <div class="amz-checkout-order-button-wr">
+                        <a href="#"
+                           class="btn btn-primary">{{ trans("AmazonLoginAndPay::AmazonPay.orderButtonCaption") }}</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="amz-checkout-order-button-wr wallet-only">
+                <a href="/amazon-checkout-proceed"
+                   class="btn btn-primary">{{ trans("AmazonLoginAndPay::AmazonPay.orderButtonCaption") }}</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends getPartial('page-design') %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% block PageBody %}
+    <div class="container-max">
+        <div style="padding:5em 0;">
+            {{ trans("AmazonLoginAndPay::AmazonPay.loginPleaseWait") }}
+        </div>
+    </div>
+{% endblock %}
